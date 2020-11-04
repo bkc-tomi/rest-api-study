@@ -1,0 +1,25 @@
+{
+  "name": "rest-api-study",
+  "version": "1.0.0",
+  "description": "トラハックさんの[Re:ゼロから始めるWeb API入門実践編](https://www.youtube.com/playlist?list=PLX8Rsrpnn3IVW5P1H1s_AOP0EEyMyiRDA)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node-dev app/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bkc-tomi/rest-api-study.git"
+  },
+  "author": "bkc",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bkc-tomi/rest-api-study/issues"
+  },
+  "homepage": "https://github.com/bkc-tomi/rest-api-study#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.0"
+  }
+}
