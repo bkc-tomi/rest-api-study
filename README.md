@@ -40,16 +40,42 @@ SNSのAPIの設計(ユーザのみ)
     |create_at|TEXT|NOT NULL|datetime関数で日付を取得|
     |updated_at|TEXT|NOT NULL|datetime関数で日付を取得|
     
-    `CREATE TABLE users (  
+    ```
+    CREATE TABLE users (  
         id INTEGER NOT NULL PRIMARY KEY, 
         name TEXT NOT NULL, 
         profile TEXT, 
         created_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), 
         updated_at TEXT NOT NULL DEFAULT (DATETIME('now', 'localtime')), 
         date_of_birth TEXT
-    );`
+    );
+    ```
 
 4. リソースの表現を設計する→今回はJsonで(データの形式、構造など)
 5. リンクとフォームでリソースを結びつける
 6. イベントの標準的なコースを設計する(正常に動いた時にリソースがどのように表現されていくのか)
 7. エラーを想定する
+
+## sqlite3
+```js
+db.serialize(() => { /* query*/}); // 内部クエリを同期的に実行
+db.all(sql, (err, rows)); // 全ての結果を１度に取得
+db.get(sql, (err, row)); // 1つだけ結果を取得
+db.run(sql, (err)); // SQLクエリを実行
+db.close(); // データベース接続を終了
+```
+
+## エラー処理
+```
+Error: listen EADDRINUSE: address already in use :::3000
+```
+
+```
+# 下記のコードを実行
+$ lsof -i:3000
+COMMAND   PID          USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    78205 masahirookubo   27u  IPv6 0xcafc6155fa23d2fd      0t0  TCP *:hbci (LISTEN)
+
+# pidを削除
+$  kill -9 78205
+```
