@@ -23,19 +23,20 @@ SNSのAPIの設計(ユーザのみ)
     |----|----|----|
     |GET|/api/v1/users|ユーザリストの取得|
     |GET|/api/v1/users/123|ユーザ情報の取得|
-    |POST|/api/v1/users/123|新規ユーザの作成|
+    |POST|/api/v1/users|新規ユーザの作成|
     |PUT|/api/v1/users/123|ユーザ情報の更新|
     |DELETE|/api/v1/users/123|ユーザの削除|
     |GET|/api/v1/search?q=hoge|ユーザ検索結果の取得|
 
     - データベース設計
     Usersテーブル
+
     |フィールド名|データ型|NULL許容|その他|
     |----|----|----|----|
     |id|TEXT|NOT NULL|PRIMARY KEY|
-    |name|TEXT|NOT NULL||
-    |profile|TEXT|||
-    |date_of_birth|TEXT|||
+    |name|TEXT|NOT NULL| |
+    |profile|TEXT| | |
+    |date_of_birth|TEXT| | |
     |create_at|TEXT|NOT NULL|datetime関数で日付を取得|
     |updated_at|TEXT|NOT NULL|datetime関数で日付を取得|
     
