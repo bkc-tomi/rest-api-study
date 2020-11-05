@@ -6,8 +6,11 @@ const app = express();
 // database
 const sqlite3 = require("sqlite3");
 const dbPath = "db/database.sqlite3";
+// static hosting
+const path = require("path");
 
 
+app.use(express.static(path.join(__dirname, "static")));
 
 // Get all users
 app.get(`/api/${apiVer}/users`, (req, res) => {
@@ -42,4 +45,4 @@ const port = process.env.PORT || 3000;
 
 app.listen(port);
 
-console.log("Listen on port http://localhost" + port);
+console.log("Listen on port http://localhost:" + port);
