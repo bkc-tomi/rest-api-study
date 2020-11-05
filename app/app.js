@@ -71,7 +71,6 @@ app.post(`/api/${apiVer}/users`, async(req, res) => {
     const name = req.body.name;
     const profile = req.body.profile ? req.body.profile : "";
     const dateOfBirth = req.body.date_of_birth ? req.body.date_of_birth : "";
-    console.log(name, profile, dateOfBirth);
 
     await run(
         `INSERT INTO users (name, profile, date_of_birth) VALUES ("${name}", "${profile}", "${dateOfBirth}")`,
@@ -93,7 +92,6 @@ app.put(`/api/${apiVer}/users/:id`, async(req, res) => {
         const name = req.body.name ? req.body.name : row.name;
         const profile = req.body.profile ? req.body.profile : row.profile;
         const dateOfBirth = req.body.date_of_birth ? req.body.date_of_birth : row.date_of_birth;
-        console.log(name, profile, dateOfBirth);
 
         await run(
             `UPDATE users SET name="${name}", profile="${profile}", date_of_birth="${dateOfBirth}" WHERE id=${id}`,
